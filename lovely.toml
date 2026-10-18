@@ -1,0 +1,23 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+# The mod itself. Appended to challenges.lua (not main.lua) so the challenge is in
+# G.CHALLENGES before Steamodded and Multiplayer load and take their snapshots of it.
+[[patches]]
+[patches.copy]
+target = "challenges.lua"
+position = "append"
+sources = ["vagabond_challenge.lua"]
+
+# Vanilla unlocks challenges by list position, which would keep ours (#21) locked until
+# every vanilla challenge is unlocked. Honour `unlocked = true` like Steamodded does.
+# The wildcard also matches Steamodded's rewrite of this line.
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = "local challenge_unlocked = *"
+position = "after"
+payload = "if v.unlocked == true then challenge_unlocked = true end"
+match_indent = true

@@ -1,0 +1,13 @@
+{
+  "id": "vagabond-challenge",
+  "name": "Vagabond Challenge",
+  "author": ["Andy"],
+  "description": "Adds the Vagabond challenge: an Eternal Vagabond and a single Joker slot, on any stake. Works with or without Steamodded.",
+  "prefix": "vbc",
+  "main_file": "smods_entry.lua",
+  "version": "1.0.0",
+  "priority": 0,
+  "badge_colour": "8E6BC4",
+  "badge_text_colour": "FFFFFF",
+  "dependencies": ["Lovely (>=0.6)"]
+}
